@@ -3,6 +3,8 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { cn } from "@/lib/utils";
 
 const font = Open_Sans({ subsets: ["latin"] });
 
@@ -17,9 +19,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={font.className}>
-        <ClerkProvider>{children}</ClerkProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={cn("bg-white dark:bg-[#313338]", font.className)}>
+        <ClerkProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </ClerkProvider>
       </body>
     </html>
   );
