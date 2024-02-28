@@ -46,18 +46,6 @@ const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
           console.log(`ERROR! ${error.message}`);
         }}
       ></UploadDropzone>
-      {/* <UploadButton
-        endpoint={endpoint}
-        onClientUploadComplete={res => {
-          // Do something with the response
-          console.log("Files: ", res);
-          alert("Upload Completed");
-        }}
-        onUploadError={(error: Error) => {
-          // Do something with the error.
-          alert(`ERROR! ${error.message}`);
-        }}
-      /> */}
     </>
   );
 };
