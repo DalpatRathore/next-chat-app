@@ -7,7 +7,7 @@ import { useModal } from "@/hooks/useModelStore";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "../ui/button";
-import { CheckCheck, Copy, RefreshCw } from "lucide-react";
+import { CheckCheck, Copy, Link2, RefreshCw } from "lucide-react";
 import useOrigin from "@/hooks/useOrigin";
 import { useState } from "react";
 import axios from "axios";
@@ -57,8 +57,8 @@ const InviteModal = () => {
           </DialogTitle>
         </DialogHeader>
         <div className="p-6">
-          <Label className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
-            Server invite link
+          <Label className="uppercase text-sm font-bold text-zinc-500 dark:text-secondary/70 flex items-center">
+            <Link2 className="mr-1 w-4 h-4"></Link2> Server invite link
           </Label>
           <div className="flex items-center mt-2 gap-x-2">
             <Input
@@ -74,16 +74,18 @@ const InviteModal = () => {
               )}
             </Button>
           </div>
-          <Button
-            onClick={onNewInviteCode}
-            disabled={isLoading}
-            variant="link"
-            size="sm"
-            className="text-xs text-zinc-500 mt-4"
-          >
-            Generate a new link
-            <RefreshCw className="w-4 h-4 ml-2"></RefreshCw>
-          </Button>
+          <div className="flex items-center justify-center mt-5">
+            <Button
+              onClick={onNewInviteCode}
+              disabled={isLoading}
+              variant="link"
+              size="sm"
+              className="text-sm text-zinc-500 shadow-sm"
+            >
+              Generate a new link
+              <RefreshCw className="w-4 h-4 ml-2"></RefreshCw>
+            </Button>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
