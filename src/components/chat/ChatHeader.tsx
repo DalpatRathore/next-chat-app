@@ -1,5 +1,6 @@
 import { Hash, Menu } from "lucide-react";
 import MobileToggle from "../MobileToggle";
+import UserAvatar from "../UserAvatar";
 
 interface ChatHeaderProps {
   serverId: string;
@@ -14,6 +15,12 @@ const ChatHeader = ({ serverId, name, type, imageUrl }: ChatHeaderProps) => {
       <MobileToggle serverId={serverId}></MobileToggle>
       {type === "channel" && (
         <Hash className="w-5 h-5 text-zinc-500 dark:text-zinc-400 ml-2 mr-1"></Hash>
+      )}
+      {type === "conversation" && (
+        <UserAvatar
+          src={imageUrl}
+          className="w-8 h-8 md:w-10 md:h-10 mr-2"
+        ></UserAvatar>
       )}
       <p className="font-semibold text-md text-black dark:text-white">{name}</p>
     </div>
