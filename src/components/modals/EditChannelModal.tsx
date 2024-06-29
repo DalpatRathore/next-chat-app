@@ -23,7 +23,7 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import axios from "axios";
-import { useParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/useModelStore";
 import { ChannelType } from "@prisma/client";
 import {

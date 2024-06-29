@@ -16,7 +16,7 @@ const SocketIndicator = () => {
     );
   }
   return (
-    <Badge variant="outline" className="bg-green-700 text-white relative py-1">
+    <Badge variant="outline" className="bg-sky-700 text-white relative py-1">
       Live: upates
       <span className="absolute top-0 right-0 flex h-2 w-2">
         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
