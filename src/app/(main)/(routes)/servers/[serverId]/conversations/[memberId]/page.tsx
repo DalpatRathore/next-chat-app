@@ -4,7 +4,7 @@ import ChatMessages from "@/components/chat/ChatMessages";
 import { getOrCreateConversation } from "@/lib/conversation";
 import { currentProfile } from "@/lib/currentProfile";
 import { db } from "@/lib/db";
-import { redirectToSignIn } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 interface MemberIdPageProps {
@@ -18,7 +18,7 @@ const MemberIdPage = async ({ params }: MemberIdPageProps) => {
   const profile = await currentProfile();
 
   if (!profile) {
-    return redirectToSignIn();
+    return auth().redirectToSignIn();
   }
 
   const currentMember = await db.member.findFirst({
